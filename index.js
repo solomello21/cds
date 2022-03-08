@@ -85,6 +85,8 @@ app.get("/w/:id", async (req, res) => {
   }
 });
 
+/* These route is disabled for temporary time.
+
 // Embed Page
 app.get("/e/:id", async (req, res) => {
   if (!req.params.id) return res.redirect("/");
@@ -144,6 +146,8 @@ app.get("/c/:id", async (req, res) => {
     });
   }
 });
+
+*/
 
 // Proxy Area
 // This is where we make everything became anonymous
@@ -223,8 +227,8 @@ app.get("/vi*", (req, res) => {
 });
 
 // Proxy to yt3.ggpht.com, Where User avatar is being stored on that host.
-app.get("/ytc/*", (req, res) => {
-  let stream = miniget(`https://yt3.ggpht.com/${req.url}`, {
+app.get("/yt3/*", (req, res) => {
+  let stream = miniget(`https://yt3.ggpht.com/${req.url.slice(5)}`, {
     headers: {
       "user-agent": user_agent,
     },
